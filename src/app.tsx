@@ -169,7 +169,7 @@ export function App() {
   return (
     <>
       <div>
-        <div class="fixed">
+        <div class="z-[-1] absolute">
           <Particles
             id="tsparticles"
             options={particlesConfig}

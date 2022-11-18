@@ -31,10 +31,12 @@ export default function Card(props: CardProps) {
         <h3 class="text-xl">Links: </h3>
         <div class="flex flex-wrap">
           {props.links.map((link: link) => (
-            <a target="_blank" href={link.url}>
-              <button class="bg-[#911c2a] text-white rounded-lg border mr-2 mt-2 p-1 opacity-100">
-                {link.name}
-              </button>
+            <a
+              target="_blank"
+              class="bg-[#911c2a] text-white rounded-lg border mr-2 mt-2 p-1 opacity-100"
+              href={link.url}
+            >
+              {link.name}
             </a>
           ))}
         </div>
