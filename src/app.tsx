@@ -200,9 +200,9 @@ export function App() {
             ></path>
           </svg>
         </div>
-        <div id="projects" class="w-screen h-screen bg-[#67141D] z-1">
+        <div id="projects" class="w-screen h-auto bg-[#67141D] z-1">
           <h1 className="3xl text-center py-10">Featured Projects</h1>
-          <div class="flex flex-auto items-center justify-center flex-wrap` space-x-5 ">
+          <div class="flex flex-auto flex-col md:flex-row items-center justify-center flex-wrap lg:space-x-5">
             <Card
               title="Cotes"
               body="Cotes aims to revolutionize taking notes and learning in Computer Science. Originally built for HackSMU 2022, we aim to be a versatile, open-source note taking solution for professionals, students and hobbyists alike. This project is a WIP and undergoing major restructuring."

@@ -14,7 +14,7 @@ type link = {
 
 export default function Card(props: CardProps) {
   return (
-    <div class="border rounded-2xl w-1/4 bg-[#FCF7F8] text-black border-black h-[42rem]">
+    <div class="border rounded-2xl w-3/4 lg:w-1/4 bg-[#FCF7F8] text-black border-black h-auto lg:h-[52rem] xl:h-[44rem]">
       <h1 class="text-4xl mx-10 mt-10 mb-5  ">{props.title}</h1>
       <p class="mx-10 mb-10">{props.body}</p>
       <div class="p-4">
