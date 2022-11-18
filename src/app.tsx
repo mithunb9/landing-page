@@ -169,7 +169,7 @@ export function App() {
   return (
     <>
       <div>
-        <div class="z-[-1] absolute">
+        <div class="absolute z-[-1]">
           <Particles
             id="tsparticles"
             options={particlesConfig}
@@ -203,7 +203,7 @@ export function App() {
             ></path>
           </svg>
         </div>
-        <div id="projects" class="w-screen h-auto bg-[#67141D] z-1">
+        <div id="projects" class="w-screen h-auto bg-[#67141D]">
           <h1 className="3xl text-center py-10">Featured Projects</h1>
           <div class="flex flex-auto flex-col md:flex-row items-center justify-center flex-wrap lg:space-x-5">
             <Card
