@@ -6,8 +6,12 @@ import { loadFull } from "tsparticles";
 import configJson from "./particles-config";
 import "./app.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowDown } from "@fortawesome/free-solid-svg-icons";
+import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faArrowDown, faMailBulk } from "@fortawesome/free-solid-svg-icons";
+
 export function App() {
+  const [index, setIndex] = useState(0);
+
   const particlesInit = (main: any) => {
     console.log(main);
 
@@ -22,25 +26,117 @@ export function App() {
   };
 
   const onArrowClick = () => {
+    let position;
+
+    switch (index) {
+      case 0:
+        //@ts-ignore
+        position = document.getElementById("projects").offsetTop;
+        setIndex(nextIndex(index));
+        break;
+      case 1:
+        //@ts-ignore
+        position = document.getElementById("contact").offsetTop;
+        setIndex(nextIndex(index));
+        break;
+    }
     window.scrollTo({
-      //@ts-ignore
-      top: document.getElementById("projects").offsetTop,
+      top: position,
       behavior: "smooth",
     });
+  };
+
+  const nextIndex = (index: number) => {
+    if (index == 2) {
+      index = 0;
+    } else {
+      index += 1;
+    }
+
+    return index;
   };
 
   return (
     <>
       <div>
-        <Particles
-          id="tsparticles"
-          options={configJson}
-          init={particlesInit}
-          loaded={particlesLoaded}
-          class="absolute z-[-1]"
-        />
+        <title>Mithun Balasubramanian</title>
 
-        <div className="animate-bounce text-center absolute w-screen bottom-2.5">
+        <div class="fixed">
+          <Particles
+            id="tsparticles"
+            options={configJson}
+            init={particlesInit}
+            loaded={particlesLoaded}
+          />
+        </div>
+        <main
+          id="main"
+          class="w-screen h-screen flex justify-center items-center"
+        >
+          <div class="flex flex-col text-center">
+            <h1>Hi 👋, I'm Mithun Balasubramanian</h1>
+            <p>
+              Thank you for visiting my website! While its undergoing some
+              restructuring, I've setup a landing page. Enjoy!{" "}
+            </p>
+          </div>
+        </main>
+        <div class="bg-black">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path
+              fill="#911c2a"
+              fill-opacity="1"
+              d="M0,64L40,85.3C80,107,160,149,240,160C320,171,400,149,480,117.3C560,85,640,43,720,42.7C800,43,880,85,960,122.7C1040,160,1120,192,1200,197.3C1280,203,1360,181,1400,170.7L1440,160L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"
+            ></path>
+          </svg>
+        </div>
+        <div id="projects" class="w-screen h-screen bg-[#911c2a] z-1">
+          <h1 className="3xl text-center py-10">Featured Projects</h1>
+          <div class="flex flex-auto items-center justify-center flex-wrap space-x-5 ">
+            <Card
+              title="Cotes"
+              body="Cotes aims to revolutionize taking notes and learning in Computer Science. Originally built for HackSMU 2022, we aim to be a versatile, open-source note taking solution for professionals, students and hobbyists alike. This project is a WIP and undergoing major restructuring."
+              tags={["Next.js", "TypeScript", "Node.js", "MongoDB"]}
+              links={[
+                {
+                  name: "GitHub",
+                  url: "https://www.github.com/mithunb9/cotes",
+                },
+                {
+                  name: "Production",
+                  url: "https://cotes.mithunb.com",
+                },
+              ]}
+            />
+            <Card
+              title="Clip!"
+              body="I worked with a team to create an interactive educational platform built for virtual learning environments to help facilitate productivity and interaction between students. The project consists of discussion boards and AI Bots to answer simple questions. I helped build the frontend of the project with styling and functionality. Submitted to OneHacks (1st Place)."
+              tags={["JavaScript", "Node.js", "React.js", "Python", "Flask"]}
+              links={[
+                {
+                  name: "Devpost",
+                  url: "https://devpost.com/software/clip",
+                },
+              ]}
+            />
+            <Card
+              title="NHS Status Checker"
+              body="I created a website for checking the membership status of NHS members for our school's chapter of NHS. Built using JavaScript and Next.js"
+              tags={["React", "Node.js", "Next.js", "REST API"]}
+              links={[
+                {
+                  name: "GitHub",
+                  url: "https://www.github.com/mithunb9/cotes",
+                },
+                {
+                  name: "Production",
+                  url: "https://nhssystem.vercel.app/",
+                },
+              ]}
+            />
+          </div>
+        </div>
+        <div className="animate-bounce text-center fixed w-screen bottom-2.5">
           <FontAwesomeIcon
             icon={faArrowDown}
             class="fixed"
@@ -48,40 +144,25 @@ export function App() {
             onClick={onArrowClick}
           />
         </div>
-
-        <main
-          id="main"
-          class="bg-black w-screen h-screen flex justify-center items-center"
-        >
-          <h1>Hi 👋, I'm Mithun Balasubramanian</h1>
-        </main>
-        <div class="bg-black">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-            <path
-              fill="#0099ff"
-              fill-opacity="1"
-              d="M0,256L120,218.7C240,181,480,107,720,112C960,117,1200,203,1320,245.3L1440,288L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"
-            ></path>
-          </svg>
-        </div>
-        <div id="projects" class="w-screen h-screen bg-[#0099ff]">
-          <h1 className="3xl text-center py-10">Featured Projects</h1>
-          <div class="flex flex-auto items-center justify-center flex-wrap space-x-5">
-            <Card
-              title="Cotes"
-              body="Cotes aims to revolutionize taking notes and learning in Computer Science. Originally built for HackSMU 2022, we aim to be a versatile, open-source note taking solution for professionals, students and hobbyists alike. This project is a WIP and undergoing major restructuring."
-              tags={["React", "TypeScript", "NodeJS", "Express", "MongoDB"]}
-            />
-            <Card
-              title="Cotes"
-              body="Cotes aims to revolutionize taking notes and learning in Computer Science. Originally built for HackSMU 2022, we aim to be a versatile, open-source note taking solution for professionals, students and hobbyists alike. This project is a WIP and undergoing major restructuring."
-              tags={["React", "TypeScript", "NodeJS", "Express", "MongoDB"]}
-            />
-            <Card
-              title="Cotes"
-              body="Cotes aims to revolutionize taking notes and learning in Computer Science. Originally built for HackSMU 2022, we aim to be a versatile, open-source note taking solution for professionals, students and hobbyists alike. This project is a WIP and undergoing major restructuring."
-              tags={["React", "TypeScript", "NodeJS", "Express", "MongoDB"]}
-            />
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+          <path
+            fill="#911c2a"
+            fill-opacity="1"
+            d="M0,160L40,149.3C80,139,160,117,240,96C320,75,400,53,480,80C560,107,640,181,720,197.3C800,213,880,171,960,133.3C1040,96,1120,64,1200,58.7C1280,53,1360,75,1400,85.3L1440,96L1440,0L1400,0C1360,0,1280,0,1200,0C1120,0,1040,0,960,0C880,0,800,0,720,0C640,0,560,0,480,0C400,0,320,0,240,0C160,0,80,0,40,0L0,0Z"
+          ></path>
+        </svg>
+        <div id="contact" class="w-screen h-screen bg-black z-1">
+          <h1 className="3xl text-center py-10">Contact Me</h1>
+          <div class="flex flex-auto items-center justify-center flex-wrap space-x-5 ">
+            <a href="https://www.github.com/mithunb9" target="_blank">
+              <FontAwesomeIcon icon={faGithub} size="3x" />
+            </a>
+            <a href="https://www.linkedin.com/in/mithunb9" target="_blank">
+              <FontAwesomeIcon icon={faLinkedin} size="3x" />
+            </a>
+            <a href="mailto:mithun@mithunb.com" target="_blank">
+              <FontAwesomeIcon icon={faMailBulk} size="3x" />
+            </a>
           </div>
         </div>
       </div>
