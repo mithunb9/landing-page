@@ -182,10 +182,13 @@ export function App() {
           class="w-screen h-screen flex justify-center items-center"
         >
           <div class="flex flex-col text-center">
-            <h1 class="text-xl lg:text-5xl">
-              Hi 👋, I'm Mithun Balasubramanian
+            <h1 class="text-5xl lg:text-6xl hidden md:inline-block mb-4">
+              Hi <span className="wave">👋</span>, I'm Mithun Balasubramanian
             </h1>
-            <p class="text-sm lg:text-lg">
+            <h1 class="text-5xl lg:text-6xl inline-block md:hidden mb-4">
+              Hi <span className="wave">👋</span>, I'm Mithun
+            </h1>
+            <p class="text-xl lg:text-2xl">
               Thank you for visiting my website! While its undergoing some
               restructuring, I've setup a landing page. Enjoy!
             </p>
@@ -274,6 +277,9 @@ export function App() {
               <FontAwesomeIcon icon={faMailBulk} size="3x" />
             </a>
           </div>
+        </div>
+        <div class="relative left-0 w-full text-center bottom-[5rem]">
+          <p>© 2022 Mithun Balasubramanian</p>
         </div>
       </div>
     </>
