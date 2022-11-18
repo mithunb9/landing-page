@@ -194,7 +194,7 @@ export function App() {
             </p>
           </div>
         </main>
-        <div>
+        <div class="mb-[-.25rem]">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
             <path
               fill="#67141D"
@@ -257,7 +257,11 @@ export function App() {
             onClick={onArrowClick}
           />
         </div>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <svg
+          class="mt-[-.25rem]"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1440 320"
+        >
           <path
             fill="#67141D"
             fill-opacity="1"
