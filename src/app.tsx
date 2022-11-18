@@ -169,8 +169,6 @@ export function App() {
   return (
     <>
       <div>
-        <title>Mithun Balasubramanian</title>
-
         <div class="fixed">
           <Particles
             id="tsparticles"
